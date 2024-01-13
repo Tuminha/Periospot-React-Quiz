@@ -28,7 +28,7 @@ const questionsData = [
     {
         type: 'radio',
     questionText: '5. Immediate implants...',
-    correctAnswer: "D) None of the above",
+    correctAnswer: "None of the above",
     options: [
         { id: 'dangerous', label: 'A) Are dangerous', value: 'Are dangerous' },
         { id: 'aestheticResult', label: 'B) Never achieve an optimal aesthetic result', value: 'Never achieve an optimal aesthetic result' },
@@ -55,16 +55,16 @@ const questionsData = [
     questionText: '7. So far so good {userName}, but let’s go with an easy one: What is the recommended distance between two implants?',
     correctAnswer: "B) 3 mm",
     options: [
-        { id: '1mm', label: 'A) 1 mm', value: 'A) 1 mm', image: 'images/1mm.png' },
-        { id: '3mm', label: 'B) 3 mm', value: 'B) 3 mm', image: 'images/3mm.png' },
-        { id: '6mm', label: 'C) 6 mm', value: 'C) 6 mm', image: 'images/6mm.png' },
-        { id: 'toothBorneBridge', label: 'D) We should avoid implants and always perform a tooth-borne bridge', value: 'D) We should avoid implants and always perform a tooth-borne bridge', image: 'images/bridge.png' }
+        { id: '1mm', label: 'A) 1 mm', value: 'A) 1 mm', image: '/public/images/1mm.png' },
+        { id: '3mm', label: 'B) 3 mm', value: 'B) 3 mm', image: '/public/images/3mm.png' },
+        { id: '6mm', label: 'C) 6 mm', value: 'C) 6 mm', image: '/public/images/6mm.png' },
+        { id: 'toothBorneBridge', label: 'D) We should avoid implants and always perform a tooth-borne bridge', value: 'D) We should avoid implants and always perform a tooth-borne bridge', image: '/public/images/bridge.png' }
     ]
     },
     {
     type: 'radio',
     questionText: '8. In which cases would you place an implant in a subcrestally position?',
-    correctAnswer: "C) Depends on the implant prosthetic connection",
+    correctAnswer: "Depends on the implant prosthetic connection",
     options: [
         { id: 'always', label: 'A) Always', value: 'Always' },
         { id: 'never', label: 'B) Never', value: 'Never' },
@@ -77,10 +77,10 @@ const questionsData = [
     questionText: '9. What is the ideal thickness of the buccal bone wall after placing an implant, {userName}?',
     correctAnswer: "B) 2 mm",
     options: [
-        { id: '1mm', label: 'A) 1 mm', value: 'A) 1 mm', image: 'images/buccal1mm.png' },
-        { id: '2mm', label: 'B) 2 mm', value: 'B) 2 mm', image: 'images/buccal2mm.png' },
-        { id: 'noBoneNeeded', label: 'C) No bone needed. Soft tissue is ok.', value: 'C) No bone needed. Soft tissue is ok.', image: 'images/softtissue.png' },
-        { id: '0.5mm', label: 'D) 0.5 mm', value: 'D) 0.5 mm', image: 'images/bucall05mm.png' }
+        { id: '1mm', label: 'A) 1 mm', value: 'A) 1 mm', image: '/public/images/buccal1mm.png' },
+        { id: '2mm', label: 'B) 2 mm', value: 'B) 2 mm', image: '/public/images/buccal2mm.png' },
+        { id: 'noBoneNeeded', label: 'C) No bone needed. Soft tissue is ok.', value: 'C) No bone needed. Soft tissue is ok.', image: '/public/images/softtissue.png' },
+        { id: '0.5mm', label: 'D) 0.5 mm', value: 'D) 0.5 mm', image: '/public/images/bucall05mm.png' }
     ]
     },
 ];

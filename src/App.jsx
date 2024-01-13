@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.css';
 import User from './components/User/User';
 import Question from './components/Questions/Questions';
 import questionsData from './components/Questions/questionsData';
+import EndScreen from './components/EndScreen/EndScreen';
+import Footer from './components/Footer/Footer';
+
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +16,8 @@ class App extends Component {
             userName: '',
             score: 0,
             isAnswered: false,
-            isCorrect: false,
-            showResults: false
+            showResults: false,
+            totalQuestions: questionsData.length - 1,
         };
     }
 
@@ -25,52 +29,55 @@ class App extends Component {
         this.setState({ userName: name, currentQuestionIndex: 0 }); // Move to the first question
     };
 
-    handleQuestionSubmit = () => {
-      // First, check if the question has been answered
+    onCorrectAnswer = () => {
+      console.log('onCorrectAnswer called, current score:', this.state.score);
+      this.setState(prevState => {
+          console.log('Incrementing score from', prevState.score, 'to', prevState.score + 1);
+          return { score: prevState.score + 1 };
+      });
+  };
+
+    handleQuestionSubmit = (userAnswer, isCorrect) => {
       if (this.state.isAnswered) {
           this.setState(prevState => {
-              // Check if the current question is the last one
               const isLastQuestion = prevState.currentQuestionIndex === questionsData.length - 1;
   
-              if (isLastQuestion) {
-                  // If it's the last question, show results
-                  return {
-                      showResults: true,
-                      isAnswered: false // Reset isAnswered for the next quiz or if the quiz is restarted
-                  };
-              } else {
-                  // If it's not the last question, go to the next question and reset isAnswered
-                  return {
-                      currentQuestionIndex: prevState.currentQuestionIndex + 1,
-                      isAnswered: false
-                  };
-              }
+              const newState = isLastQuestion ? {
+                  showResults: true,
+                  isAnswered: false, // This might be unnecessary since we're showing results
+              } : {
+                  currentQuestionIndex: prevState.currentQuestionIndex + 1,
+                  isAnswered: false, // Reset for the next question
+              };
+  
+              return newState;
           });
+  
+          if (isCorrect) {
+              this.onCorrectAnswer(); // Only increment score here if the answer is correct
+          }
       } else {
-          // Handle the case where the user doesn't answer the question by showing an alert
           alert('Please select an answer');
       }
   };
 
     handleAnswerSelection = (isAnswered) => {
-      this.setState({isAnswered});
+        this.setState({isAnswered});
     }
 
-    onCorrectAnswer = () => {
-      this.setState((prevState) => ({score: prevState.score + 1}));
-    }
+
+    checkIfAnswerIsCorrect = (currentQuestion, userAnswer) => {
+        // Implement the actual logic to check if the answer is correct
+        // This will vary based on your question and answer structure
+        return currentQuestion.correctAnswer === userAnswer;
+    };
 
     render() {
-        const { showStartScreen, currentQuestionIndex, userName, score, showResults } = this.state;
+        const { showStartScreen, currentQuestionIndex, userName, score, showResults, isAnswered } = this.state;
 
+        // Show the endscreen depending on the score
         if (showResults) {
-          // Render the results component when the quiz is completed
-          return (
-              <div className="App">
-                  <h1>Results</h1>
-                  <p>{userName}, you scored {score} out of {questionsData.length}.</p>
-              </div>
-          );  
+            return <EndScreen score={score} />;
         }
 
         return (
@@ -93,8 +100,11 @@ class App extends Component {
                         onQuestionSubmit={this.handleQuestionSubmit}
                         onCorrectAnswer={this.onCorrectAnswer}
                         onAnswerSelection={this.handleAnswerSelection}
+                        isAnswered={isAnswered}
+                        score={this.state.score}
                     />
                 )}
+                <Footer currentStep={currentQuestionIndex} totalSteps={questionsData.length} />
             </div>
         );
     }

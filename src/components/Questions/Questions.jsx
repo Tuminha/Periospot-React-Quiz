@@ -13,11 +13,12 @@ Question.propTypes = {
     onQuestionSubmit: propTypes.func.isRequired,
     onCorrectAnswer: propTypes.func.isRequired,  // Function to call when the answer is correct
     onAnswerSelection: propTypes.func.isRequired,  // Function to call when the answer is selected
-    isAnswered: propTypes.bool.isRequired  // Boolean to check if the question is answered
+    isAnswered: propTypes.bool.isRequired,  // Boolean to check if the question is answered
+    score: propTypes.number.isRequired
 };
 
 // Define prop types
-function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectAnswer, onAnswerSelection }) {
+function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectAnswer, onAnswerSelection, score }) {
     const [selectedOptions, setSelectedOptions] = useState({});
 
     const handleSelectionChange = (event) => {
@@ -47,28 +48,36 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectA
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log('handleSubmit called');
+    
+        // Get the current question based on the index
+        const currentQuestion = questionsData[currentQuestionIndex];
     
         // Check if the answer is correct
         let isCorrect = false;
-        if (currentQuestion.type === 'checkbox') {
-            // For checkbox, all selected options must be correct and all correct options must be selected
-            const correctAnswers = new Set(currentQuestion.correctAnswer);
-            const selectedAnswers = Object.keys(selectedOptions).filter(key => selectedOptions[key]);
-            isCorrect = selectedAnswers.length === correctAnswers.size &&
-                        selectedAnswers.every(answer => correctAnswers.has(answer));
+    
+        // Skip scoring for the interests question
+        if (currentQuestion.questionText.includes("What's your area of interest")) {
+            // Do not affect the score, just proceed
+            onQuestionSubmit(selectedOptions, false); // false indicates no change to score
         } else {
-            // For radio and image choice, the selected option must match the correct answer
-            isCorrect = selectedOptions.selected === currentQuestion.correctAnswer;
+            if (currentQuestion.type === 'checkbox') {
+                // For checkbox, all selected options must be correct and all correct options must be selected
+                const correctAnswers = new Set(currentQuestion.correctAnswer);
+                const selectedAnswers = Object.keys(selectedOptions).filter(key => selectedOptions[key]);
+                isCorrect = selectedAnswers.length === correctAnswers.size &&
+                            selectedAnswers.every(answer => correctAnswers.has(answer));
+            } else {
+                // For radio and image choice, the selected option must match the correct answer
+                isCorrect = selectedOptions.selected === currentQuestion.correctAnswer;
+            }
+    
+            // Pass the selected answer to the onQuestionSubmit function
+            onQuestionSubmit(selectedOptions.selected, isCorrect);
         }
-
+    
+        // Log messages for debugging purposes
         if (isCorrect) {
-            onCorrectAnswer(); // Call a new prop function to increment the score
-        }
-
-        onQuestionSubmit(selectedOptions);
-        
-        // Check if everything is ok
-        if (isCorrect && selectedOptions) {
             console.log("Everything is ok");
         } else {
             console.log("Something went wrong");
@@ -95,6 +104,7 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectA
                     options={currentQuestion.options}
                     userName={userName}
                     onSelectionChange={handleSelectionChange}
+
                 />
             ) : (
                 <ImageChoiceQuestion 
@@ -106,7 +116,9 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectA
                 />
             )}
             <input type="submit" id="submitQuizForm" value="Submit" />
+
         </form>
+        
     );
 }
 

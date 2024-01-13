@@ -17,7 +17,7 @@ function ImageChoiceQuestion({ question, options, userName, onSelectionChange })
               style={{ display: 'none' }} // Hide the radio button
             />
             <label htmlFor={option.id}>
-              <img src={option.imageSrc} alt={option.label} />
+              <img src={option.image} alt={option.label} />
             </label>
           </div>
         ))}
