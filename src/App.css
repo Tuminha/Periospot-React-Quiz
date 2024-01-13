@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.logo-image img {
+  height: 40vmin;
+  pointer-events: none;
+}
