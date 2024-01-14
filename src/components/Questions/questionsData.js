@@ -26,7 +26,7 @@ const questionsData = [
     ]
     },
     {
-        type: 'radio',
+    type: 'radio',
     questionText: '5. Immediate implants...',
     correctAnswer: "None of the above",
     options: [
