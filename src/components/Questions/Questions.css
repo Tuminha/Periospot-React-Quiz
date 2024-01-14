@@ -1,0 +1,88 @@
+/* Start importing some of the variables from the main App.css file */
+
+:root {
+    --extreme-dark-blue: #01335B;
+    --dark-blue: #213C6E;
+    --periospot-dark-blue: #38507C;
+    --yellow-periospot: #FFC431;
+    --grey-periospot: #BFBFBF;
+    --white-periospot: #FFFFFF;
+    --black-periospot: #000000;   
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+  }
+  
+  .choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .choices div {
+    border: 1px solid var(--yellow-periospot);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .choices input[type="checkbox"] {
+    /* Basic custom styles for checkboxes */
+    cursor: pointer;
+    width: 30px;
+    padding: 0;
+    height: 30px;
+    background-color: var(--periospot-dark-blue);
+    border: 1px solid var(--yellow-periospot);
+    border-radius: 5px;
+    appearance: none;
+  }
+
+  .choices input[type="radio"] {
+    /* Basic custom styles for checkboxes */
+    cursor: pointer;
+    width: 30px;
+    padding: 0;
+    height: 30px;
+    background-color: var(--periospot-dark-blue);
+    border: 1px solid var(--yellow-periospot);
+    border-radius: 5px;
+    appearance: none;
+  }
+  
+  .choices label {
+    /* Styles for the label which can include padding, display type, etc. */
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none; /* This will prevent the text from being selectable, which is standard for custom checkboxes */
+  }
+
+  #submitQuizForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    background-color: var(--yellow-periospot);
+    border-radius: 15px;
+    padding: 15px 15px;
+    box-shadow: none;
+    border-style: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+    }
+
+

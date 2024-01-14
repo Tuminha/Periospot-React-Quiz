@@ -4,13 +4,13 @@ const questionsData = [
     type: 'checkbox',
     questionText: '3. What\'s your area of interest, {userName}?',
     options: [
-        { id: 'periodontics', label: 'Periodontics', value: 'Periodontics' },
-        { id: 'implantDentistry', label: 'Implant Dentistry', value: 'Implant Dentistry' },
-        { id: 'guidedBoneRegeneration', label: 'Guided Bone Regeneration', value: 'Guided Bone Regeneration' },
-        { id: 'socialMediaMarketing', label: 'Social Media & Online Marketing in Dentistry', value: 'Social Media & Online Marketing in Dentistry' },
-        { id: 'digitalDentistry', label: 'Digital Dentistry', value: 'Digital Dentistry' },
-        { id: 'aestheticDentistry', label: 'Aesthetic Dentistry', value: 'Aesthetic Dentistry' },
-        { id: 'other', label: 'Other', value: 'Other' }
+        { id: 'periodontics', label: 'A) Periodontics', value: 'Periodontics' },
+        { id: 'implantDentistry', label: 'B) Implant Dentistry', value: 'Implant Dentistry' },
+        { id: 'guidedBoneRegeneration', label: 'C) Guided Bone Regeneration', value: 'Guided Bone Regeneration' },
+        { id: 'socialMediaMarketing', label: 'D) Social Media & Online Marketing in Dentistry', value: 'Social Media & Online Marketing in Dentistry' },
+        { id: 'digitalDentistry', label: 'E) Digital Dentistry', value: 'Digital Dentistry' },
+        { id: 'aestheticDentistry', label: 'F) Aesthetic Dentistry', value: 'Aesthetic Dentistry' },
+        { id: 'other', label: 'G) Other', value: 'Other' }
     ]
     },
     {
@@ -18,11 +18,11 @@ const questionsData = [
     questionText: "4. Who discovered the Osseointegration?",
     correctAnswer: "Branemark",
     options: [
-        { id: 'Branemark', label: 'Branemark', value: 'Branemark' },
-        { id: 'Misch', label: 'Misch', value: 'Misch' },
-        { id: 'Nevins', label: 'Nevins', value: 'Nevins' },
-        { id: 'Hilt', label: 'Hilt', value: 'Hilt' },
-        { id: 'other', label: 'Other', value: 'Other' }
+        { id: 'Branemark', label: 'A) Branemark', value: 'Branemark' },
+        { id: 'Misch', label: 'B) Misch', value: 'Misch' },
+        { id: 'Nevins', label: 'C) Nevins', value: 'Nevins' },
+        { id: 'Hilt', label: 'D) Hilt', value: 'Hilt' },
+        { id: 'other', label: 'E) Other', value: 'Other' }
     ]
     },
     {

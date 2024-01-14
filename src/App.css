@@ -1,9 +1,20 @@
+:root {
+  --extreme-dark-blue: #01335B;
+  --dark-blue: #213C6E;
+  --periospot-dark-blue: #38507C;
+  --yellow-periospot: #FFC431;
+  --grey-periospot: #BFBFBF;
+  --white-periospot: #FFFFFF;
+  --black-periospot: #000000;
+  
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #282c34;
+  background-color: var(--extreme-dark-blue);
 }
 
 .logo {
@@ -13,10 +24,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--dark-blue));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--periospot-dark-blue));
 }
 
 @keyframes logo-spin {
@@ -34,25 +45,13 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
-}
-
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .logo-image img {
   height: 40vmin;
   pointer-events: none;
+}
+
+.submit-button {
+  background-color: var(--yellow-periospot);
 }

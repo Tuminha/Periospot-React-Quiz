@@ -2,15 +2,21 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: var(--extreme-dark-blue);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga' on;
+  --extreme-dark-blue: #01335B;
+  --dark-blue: #213C6E;
+  --periospot-dark-blue: #38507C;
+  --yellow-periospot: #FFC431;
+  --grey-periospot: #BFBFBF;
+  --white-periospot: #FFFFFF;
+  --black-periospot: #000000;
 }
 
 a {
@@ -42,9 +48,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--yellow-periospot);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: var(--extreme-dark-blue);
 }
 button:hover {
   border-color: #646cff;

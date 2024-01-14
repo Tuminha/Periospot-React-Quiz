@@ -4,6 +4,7 @@ import CheckboxQuestion from './CheckboxQuestion';
 import RadioQuestion from './RadioQuestion';
 import ImageChoiceQuestion from './ImageChoiceQuestion';
 import questionsData from './questionsData';
+import './Questions.css';
 
 
 // Questions prop types
@@ -18,7 +19,7 @@ Question.propTypes = {
 };
 
 // Define prop types
-function Question({ currentQuestionIndex, userName, onQuestionSubmit, onCorrectAnswer, onAnswerSelection, score }) {
+function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSelection }) {
     const [selectedOptions, setSelectedOptions] = useState({});
 
     const handleSelectionChange = (event) => {
