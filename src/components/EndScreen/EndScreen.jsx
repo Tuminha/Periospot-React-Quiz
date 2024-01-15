@@ -1,4 +1,3 @@
-import React from 'react';
 // Import the score result so we can render different endscreens depending on the score
 import questionsData from '../Questions/questionsData';
 import propTypes from 'prop-types';
@@ -26,7 +25,7 @@ function EndScreen({ score }) {
         );
     }
 
-    if (score > 3 && score < 5) {
+    if (score >= 3 || score <= 5) {
         return (
             <div id="content-container" className="center-content">
                 <div className="feedback-container" id="feedback-container">

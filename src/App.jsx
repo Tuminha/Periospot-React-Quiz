@@ -72,6 +72,19 @@ class App extends Component {
         return currentQuestion.correctAnswer === userAnswer;
     };
 
+    onPrevStep = () => {
+        this.setState(prevState => {
+            return { currentQuestionIndex: prevState.currentQuestionIndex - 1 };
+        });
+    };
+
+    onNextStep = () => {
+        this.setState(prevState => {
+            return { currentQuestionIndex: prevState.currentQuestionIndex + 1 };
+        });
+    };
+    
+
     render() {
         const { showStartScreen, currentQuestionIndex, userName, score, showResults, isAnswered } = this.state;
 
@@ -88,8 +101,8 @@ class App extends Component {
                         <div className="logo-image">
                         <img src="/public/images/Logo_blanco-01.png" alt="Periospot Logo" />
                         </div>
-                        <p>Let's see how much you know about Implant Dentistry!</p>
-                        <button onClick={this.startQuiz}>Let's start!</button>
+                        <p>Let&apos;s see how much you know about Implant Dentistry!</p>
+                        <button className="start-button" onClick={this.startQuiz}>Let&apos;s start!</button>
                     </>
                 ) : currentQuestionIndex === -1 ? (
                     <User onNameSubmit={this.handleUserName} />
@@ -104,7 +117,12 @@ class App extends Component {
                         score={this.state.score}
                     />
                 )}
-                <Footer currentStep={currentQuestionIndex} totalSteps={questionsData.length} />
+                <Footer 
+                currentStep={currentQuestionIndex} 
+                totalSteps={questionsData.length} 
+                onPrevStep={this.onPrevStep}
+                onNextStep={this.onNextStep}
+                />
             </div>
         );
     }

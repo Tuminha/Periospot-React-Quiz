@@ -54,9 +54,9 @@
   .choices input[type="checkbox"] {
     /* Basic custom styles for checkboxes */
     cursor: pointer;
-    width: 30px;
+    min-width: 30px;
     padding: 0;
-    height: 30px;
+    min-height: 30px;
     background-color: var(--periospot-dark-blue);
     border: 1px solid var(--yellow-periospot);
     border-radius: 5px;
@@ -66,9 +66,9 @@
   .choices input[type="radio"] {
     /* Basic custom styles for checkboxes */
     cursor: pointer;
-    width: 30px;
+    min-width: 30px;
     padding: 0;
-    height: 30px;
+    min-height: 30px;
     background-color: var(--periospot-dark-blue);
     border: 1px solid var(--yellow-periospot);
     border-radius: 5px;
@@ -85,6 +85,33 @@
     user-select: none; /* This will prevent the text from being selectable, which is standard for custom checkboxes */
   }
 
+  .choices div:hover {
+    background-color: var(--periospot-dark-blue);
+  }
+  
+  .choices div input[type="checkbox"]:checked {
+    background-color: var(--yellow-periospot);
+    border: 2px solid var(--yellow-periospot);
+  }
+  
+  .choices div input[type="checkbox"]:checked ~ * {
+    background-color: var(--periospot-dark-blue);
+  }
+  
+  .choices div:hover input[type="checkbox"]:checked ~ * {
+    background-color: var(--periospot-dark-blue);
+  }
+  .choices input[type="radio"]:checked {
+    background-color: var(--yellow-periospot);
+    border: 2px solid var(--yellow-periospot);
+  }
+  .image-choices .image-choice input[type="radio"]:checked + label {
+    /* Add the different effect for images here */
+    border: 2px solid var(--yellow-periospot);
+    border-radius: 15px;
+    
+  }
+
   #submitQuizForm {
     display: flex;
     justify-content: center;
@@ -99,6 +126,8 @@
     color: black;
     font-size: 20px;
     margin-top: 20px;
+    margin-bottom: 100px;
+
     }
 
     .image-choices {
@@ -158,5 +187,68 @@
         font-size: var(--text-size-1);
         color: white;
     }
+
+    #content-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      flex-wrap: wrap;
+      align-content: center;
+  }
+
+  .feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    background-color: var(--periospot-dark-blue);
+    border-radius: 15px;
+    padding: 15px 15px;
+    box-shadow: none;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+  
+  #recommended-content-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    background-color: var(--yellow-periospot);
+    border-radius: 15px;
+    padding: 15px 15px;
+    box-shadow: none;
+    border-style: none;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  #restart-quiz-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    background-color: var(--periospot-dark-blue);
+    border-radius: 15px;
+    padding: 15px 15px;
+    box-shadow: none;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
 
 

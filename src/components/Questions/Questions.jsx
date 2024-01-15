@@ -7,6 +7,7 @@ import questionsData from './questionsData';
 import './Questions.css';
 
 
+
 // Questions prop types
 Question.propTypes = {
     currentQuestionIndex: propTypes.number.isRequired,  // The index of the current question    

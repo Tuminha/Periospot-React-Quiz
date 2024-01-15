@@ -1,16 +1,30 @@
-/* src/components/Footer/Footer.css */
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: var(--periospot-dark-blue);
     text-align: center;
     padding: 10px;
+    color: var(--white-periospot);
+    font-size: var(--text-size-1);
+    border-top: 2px solid var(--yellow-periospot);
   }
   
   .progress-text {
     margin-top: 5px;
-    color: #6c757d;
-    
+    color: var(--yellow-periospot);
+    font-size: var(--text-size-2);
+  }
+  .step-button {
+    background-color: var(--grey-periospot);
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: var(--text-size-1);
+    font-weight: 400;
+    color: var(--dark-blue);
+    text-transform: none;
+    cursor: pointer;
+    transition: background-color 200ms;
+    margin: 10px;
   }
