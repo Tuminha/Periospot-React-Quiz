@@ -101,7 +101,7 @@ class App extends Component {
                         <div className="logo-image">
                         <img src="/public/images/Logo_blanco-01.png" alt="Periospot Logo" />
                         </div>
-                        <p>Let&apos;s see how much you know about Implant Dentistry!</p>
+                        <p className="intro-text">Let&apos;s see how much you know about Implant Dentistry!</p>
                         <button className="start-button" onClick={this.startQuiz}>Let&apos;s start!</button>
                     </>
                 ) : currentQuestionIndex === -1 ? (

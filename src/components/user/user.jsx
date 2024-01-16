@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import propTypes from 'prop-types';
+import './User.css';
 
 function User({ onNameSubmit }) {
     const [name, setName] = useState('');
@@ -19,7 +20,8 @@ User.propTypes = {
             <label htmlFor="firstName">2. Before we start, can we get your first name?</label>
             <input 
                 type="text" 
-                id="firstName" 
+                id="firstName"
+                className="nameInput"
                 name="firstName" 
                 placeholder="Type your answer here..."
                 value={name}

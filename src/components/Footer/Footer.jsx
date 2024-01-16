@@ -12,11 +12,15 @@ const Footer = ({ currentStep, totalSteps, onPrevStep, onNextStep }) => {
 
   return (
     <footer className="footer">
-      <button className="step-button" onClick={onPrevStep}>Previous</button>
-      <progress value={progress} max="100"></progress>
-      <button className="step-button" onClick={onNextStep ? onNextStep : () => {}}>Next</button>
+      <div className="progress-full">
+      <div className="progress-section">
+        <button className="step-button" onClick={onPrevStep}><span>&lt;</span> Previous</button>
+        <progress value={progress} max="100" className="progress-bar"></progress>
+      <button className="step-button" onClick={onNextStep ? onNextStep : () => {}}>Next <span>&gt;</span></button>
+      </div>
       <div className="progress-text">
         {currentStep} / {totalSteps}
+      </div>
       </div>
     </footer>
   );

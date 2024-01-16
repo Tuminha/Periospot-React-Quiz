@@ -24,15 +24,19 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSe
     const [selectedOptions, setSelectedOptions] = useState({});
 
     const handleSelectionChange = (event) => {
-        const { value, checked, type } = event.target;
+        const { value, checked, type, name } = event.target;
         if (type === 'checkbox') {
             setSelectedOptions({
                 ...selectedOptions,
-                [value]: checked
+                [value]: checked,
+                [name]: checked
+                
             });
         } else if (type === 'radio') {
             setSelectedOptions({
                 ...selectedOptions,
+                [value]: checked,
+                [name]: checked,
                 // Assuming you want to store the selected value under a generic key like 'selected'
                 selected: value
             });
@@ -40,7 +44,9 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSe
             // Handle for image choice question
             setSelectedOptions({
                 ...selectedOptions,
-                selected: value
+                selected: value,
+                [name]: checked,
+                [value]: checked
             });
         }
         onAnswerSelection(true);
@@ -86,6 +92,11 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSe
         }
     };
 
+    // Add a class to the parent div in the "checkbox" type of question to change the background color of the parent div
+    const getCheckboxQuestionClassName = () => {
+        return questionsData[currentQuestionIndex].type === 'checkbox' ? 'checkbox-question' : '';
+    }
+
     // Get the current question based on the index
     const currentQuestion = questionsData[currentQuestionIndex];
 
@@ -98,6 +109,8 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSe
                     options={currentQuestion.options}
                     userName={userName}
                     onSelectionChange={handleSelectionChange}
+                    className={getCheckboxQuestionClassName()}
+                    selectedOptions={selectedOptions}
                 />
             ) : currentQuestion.type === 'radio' ? (
                 <RadioQuestion 
@@ -106,7 +119,9 @@ function Question({ currentQuestionIndex, userName, onQuestionSubmit, onAnswerSe
                     options={currentQuestion.options}
                     userName={userName}
                     onSelectionChange={handleSelectionChange}
-
+                    selectedOptions={selectedOptions}
+                    onAnswerSelection={onAnswerSelection}
+                    className={getCheckboxQuestionClassName()}
                 />
             ) : (
                 <ImageChoiceQuestion 

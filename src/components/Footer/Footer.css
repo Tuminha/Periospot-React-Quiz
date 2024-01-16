@@ -20,11 +20,44 @@
     background-color: var(--grey-periospot);
     border-radius: 5px;
     padding: 10px 10px;
-    font-size: var(--text-size-1);
+    font-size: 14px;
     font-weight: 400;
     color: var(--dark-blue);
     text-transform: none;
     cursor: pointer;
     transition: background-color 200ms;
-    margin: 10px;
-  }
+    margin: 10px 20px -10px 20px;
+}
+
+  .progress-text {
+        /* margin-top: -7px; */
+        color: var(--yellow-periospot);
+        font-size: var(--text-size-2);
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 16px;
+    }
+
+.progress-full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.progress-section {
+  margin-bottom: 0;
+}
+
+.progress-bar {
+  appearance: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  block-size: 1em;
+  inline-size: 10em;
+  vertical-align: -0.2em;
+}

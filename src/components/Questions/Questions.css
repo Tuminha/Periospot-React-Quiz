@@ -85,22 +85,23 @@
     user-select: none; /* This will prevent the text from being selectable, which is standard for custom checkboxes */
   }
 
-  .choices div:hover {
-    background-color: var(--periospot-dark-blue);
-  }
-  
-  .choices div input[type="checkbox"]:checked {
-    background-color: var(--yellow-periospot);
-    border: 2px solid var(--yellow-periospot);
-  }
-  
-  .choices div input[type="checkbox"]:checked ~ * {
-    background-color: var(--periospot-dark-blue);
-  }
-  
-  .choices div:hover input[type="checkbox"]:checked ~ * {
-    background-color: var(--periospot-dark-blue);
-  }
+/* When a checkbox is checked, change the background color of the label */
+.choices input[type="checkbox"]:checked{
+  background-color: var(--yellow-periospot);
+  border: 2px solid var(--yellow-periospot);
+}
+
+
+/* Optional: if you want to change the background color of the label on hover */
+.choices label:hover {
+  background-color: var(--periospot-dark-blue);
+}
+
+.choice-item.checked {
+  background-color: var(--periospot-dark-blue);
+}
+
+
   .choices input[type="radio"]:checked {
     background-color: var(--yellow-periospot);
     border: 2px solid var(--yellow-periospot);
